@@ -14,8 +14,16 @@
 
 .site-layout-background {
     background: #fff;
+    height: calc(100vh - 64px);
+    padding: 24px 0;
+;
 }
 
-.content {
+.layout {
+    /*height: 100vh;*/
+}
 
+.sider {
+    background: #fff;
+    height: calc(100vh - 64px - 48px);
 }
