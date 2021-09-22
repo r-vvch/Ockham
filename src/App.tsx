@@ -1,6 +1,6 @@
 import './App.css';
 import { Layout, Menu } from 'antd';
-import {UserOutlined, LaptopOutlined, NotificationOutlined, CompassOutlined} from '@ant-design/icons';
+import { UserOutlined, LaptopOutlined, NotificationOutlined, CompassOutlined } from '@ant-design/icons';
 
 const { Header, Content, Sider } = Layout;
 
