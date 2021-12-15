@@ -25,6 +25,8 @@ SECRET_KEY = 'django-insecure-k(n(hbfwnj0zqgv^$c=tahr5!@cigcr_me$!xx@ww0r)eiyq#3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# For access from other devices input your IP here, for example: "192.168.0.100".
+# Then run "python manage.py runserver 192.168.0.100:8000" and go to this address from other device.
 ALLOWED_HOSTS = []
 
 
