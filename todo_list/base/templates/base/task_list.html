@@ -17,6 +17,20 @@
     <input type="submit" value="Search">
 </form>
 
+<form method="GET">
+   <button type="submit"></button>
+    <label>
+        <input name="sort" type="checkbox" value="title" {{ by_title }}>
+    </label>
+    <label>
+        <input name="sort" type="checkbox" value="complete" {{ by_complete }}>
+    </label>
+    <label>
+        <input name="sort" type="checkbox" value="id" {{ by_id }}>
+    </label>
+</form>
+
+
 <table>
     <tr>
         <th>Item</th>

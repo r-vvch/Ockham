@@ -48,6 +48,9 @@ class TaskList(LoginRequiredMixin, ListView):
         context['tasks'] = context['tasks'].filter(user=self.request.user)
         context['count'] = context['tasks'].filter(complete=False).count()
 
+        sort = self.request.GET.getlist('sort')
+        context['tasks'] = context['tasks'].order_by(*sort)
+
         search_input = self.request.GET.get('search-area') or ''
         if search_input:
             context['tasks'] = context['tasks'].filter(
