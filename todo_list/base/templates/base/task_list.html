@@ -3,7 +3,7 @@
 
 <div class="header-bar">
     <div>
-        <h1>Hello {{request.user|title}}</h1>
+        <h1>Hello, {{request.user|title}}!</h1>
         <h3 style="margin: 0"> You have {{count}} incomplete task{{count|pluralize:"s"}}</h3>
     </div>
     {% if request.user.is_authenticated %}
@@ -13,30 +13,28 @@
     {% endif %}
 </div>
 
-<!--<a href="{% url 'task-create' %}">Add Task</a>-->
+<div id="search-add-wrapper">
+    <form method="GET" style="margin-top: 20px; display: flex;">
+        <input type='text' name='search-area' value="{{search_input}}">
+        <input class="button" type="submit" value="Search">
+    </form>
+    <a id="add-link" href="{% url 'task-create' %}">&#x2b;</a>
+</div>
 
 <!--<form method="GET">-->
-<!--    <label>-->
-<!--        <input type='text' name='search-area' value="{{search_input}}">-->
-<!--    </label>-->
-<!--    <input type="submit" value="Search">-->
+<!--   <button type="submit"></button>-->
+<!--    <label><input name="sort" type="checkbox" value="title" {{ by_title }}></label>-->
+<!--    <label><input name="sort" type="checkbox" value="complete" {{ by_complete }}></label>-->
+<!--    <label><input name="sort" type="checkbox" value="id" {{ by_id }}></label>-->
 <!--</form>-->
-
-<form method="GET">
-   <button type="submit"></button>
-    <label><input name="sort" type="checkbox" value="title" {{ by_title }}></label>
-    <label><input name="sort" type="checkbox" value="complete" {{ by_complete }}></label>
-    <label><input name="sort" type="checkbox" value="id" {{ by_id }}></label>
-</form>
 
 <div class="task-items-wrapper">
     {% for task in tasks %}
     <div class="task-wrapper">
         {% if task.complete %}
         <div class="task-title">
-            <div class="task-complete-icon">
-                <s><a href="{% url 'task-update' task.id %}">{{task}}</a></s>
-            </div>
+            <div class="task-complete-icon"></div>
+            <s><a href="{% url 'task-update' task.id %}">{{task}}</a></s>
         </div>
         <a class="delete-link" href="{% url 'task-delete' task.id %}">&#215;</a>
         {% else %}
