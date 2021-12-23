@@ -18,15 +18,20 @@
         <input type='text' name='search-area' value="{{search_input}}">
         <input class="button" type="submit" value="Search">
     </form>
-    <a id="add-link" href="{% url 'task-create' %}">&#x2b;</a>
+    <div><a id="add-link" href="{% url 'task-create' %}">&#x2b;</a></div>
 </div>
 
-<!--<form method="GET">-->
-<!--   <button type="submit"></button>-->
-<!--    <label><input name="sort" type="checkbox" value="title" {{ by_title }}></label>-->
-<!--    <label><input name="sort" type="checkbox" value="complete" {{ by_complete }}></label>-->
-<!--    <label><input name="sort" type="checkbox" value="id" {{ by_id }}></label>-->
-<!--</form>-->
+
+<div class="sort-div">
+    <form method="GET">
+<!--        <button class="button" type="submit">Sort</button>-->
+        <select id="sort-wrapper" name="sort" onchange="this.form.submit()"> <!--Supplement an id here instead of using 'name'-->
+            <option value="title" {{ by_title }}>Title</option>
+            <option value="complete" {{ by_complete }}>Completion</option>
+            <option value="id" {{ by_id }}>Date</option>
+        </select>
+    </form>
+</div>
 
 <div class="task-items-wrapper">
     {% for task in tasks %}
